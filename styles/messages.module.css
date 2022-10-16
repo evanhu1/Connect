@@ -41,32 +41,35 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: fit-content;
     margin: 2rem 0;
-    overflow: hidden;
+    overflow: scroll;
 }
 .groupRow {
-  width: 100%;
-  border-top: 1px solid rgb(196, 196, 196);
-  border-bottom: 1px solid white;
-  padding: 2rem 4rem;
-  margin: 0;
+  width: 50rem;
+  border: 1px solid rgb(196, 196, 196);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  background-clip: border-box;
-  cursor: pointer;
-}
-.groupRow:hover {
-    background-color: rgb(61, 61, 61);
 }
 .group {
   filter: invert() brightness(90%);
   margin-right: 2rem;
   
 }
-.rowSub {
-  margin: 0;
+.groupRowContainer {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.input {
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: black;
+  border: 1px solid rgb(196, 196, 196);
 }

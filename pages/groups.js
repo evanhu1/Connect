@@ -16,28 +16,33 @@ export default function Home() {
 
   return (
     <div className={styles.title}>
-      <div className={styles.logo}> 
-        <Image src={'/logo.png'} alt="logo" width={"120px"} height={"120px"}  />
-      </div>
+      <Link href={"/"}>
+        <div className={styles.logo}> 
+          <Image src={'/logo.png'} alt="logo" width={"120px"} height={"120px"}  />
+        </div>
+      </Link>
       <div className={styles.navbar}> 
-        <h3>My Groups</h3>
+        <h3>Create</h3>
+        <h3>My Group Chats</h3>
         <h3 className={styles.logout}>Log Out</h3>
       </div>
-      <h1 className={styles.heading2}>GROUPS</h1>
-      <Link href={'discover'}><div className={styles.button}>Discover Groups</div></Link>
+      <h1 className={styles.heading2}>GROUP CHATS</h1>
+      <Link href={'discover'}><div className={styles.button}>Discover Group Chats</div></Link>
 
       <div className={styles.map}>
         {data.map(element => {
           return (
-            <div key={element.id} className={styles.groupRow}>
-              <div className={styles.group}> 
-                <Image src={'/group.png'} alt="logo" width={"75px"} height={"75px"}  />
+            <Link key={element.id}  href={`group/${element.id}/messages`}>
+              <div className={styles.groupRow}>
+                <div className={styles.group}> 
+                  <Image src={'/group.png'} alt="logo" width={"75px"} height={"75px"}  />
+                </div>
+                  <div className={styles.rowSub}>
+                    <h3 style={{margin: 0}}>{`${element.title}`}</h3>
+                    <p style={{marginLeft: "2rem"}}>John: What time should we meet up?</p>
+                  </div>
               </div>
-              <div className={styles.rowSub}>
-                <h3 style={{margin: 0}}>{`${element.title}`}</h3>
-                <p style={{marginLeft: "2rem"}}>John: Anyone on right now?</p>
-              </div>
-            </div>
+            </Link>
           )})}
       </div>
     </div>

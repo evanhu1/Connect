@@ -11,7 +11,9 @@ client.connect();
 
 export default function handler(req, res) {
   const { group_id } = req.query;
-  client.query(`SELECT * FROM connect_schema.messages JOIN connect_schema.users ON messages.user_id = users.id WHERE messages.group_id = '${group_id}';`, (err, result) => {
+  const text = req.body;
+  client.query(`INSERT INTO connect_schema.messages (user_id, group_id, text) 
+  VALUES ('acde070d-8c4c-4f0d-9d8a-162843c10333', '${group_id}', '${text}');`, (err, result) => {
     if (err) {
       res.status(404).json({ error: err })
     } else {

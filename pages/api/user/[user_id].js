@@ -9,7 +9,8 @@ const pool = new Pool({
 });
 
 export default function handler(req, res) {
-  pool.query('SELECT * FROM connect_schema.users;', (err, result) => {
+  const { user_id } = req.query;
+  pool.query(`SELECT * FROM connect_schema.users WHERE connect_schema.users.id = '${user_id}';`, (err, result) => {
     if (err) {
       res.status(404).json({ error: err })
     } else {

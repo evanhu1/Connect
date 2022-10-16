@@ -1,26 +1,20 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { useEffect, useState } from 'react'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/title.module.css";
+import Link from "next/link";
 
 export default function Home() {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch('/api/user/users')
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data.result);
-      })
-  }, [])
-  console.log(data);
   return (
-    <div className={styles.container}>
-      <ul>
-        {data.map(element => {
-          return (<li key={element.id}>{`Name: ${element.name}`}</li>)
-        })}
-      </ul>
-      
+    <div className={styles.title}>
+      <div className={styles.logo}> 
+        <Image src={'/logo.png'} alt="logo" width={"120px"} height={"120px"}  />
+      </div>
+      <div className={styles.navbar}> 
+        <h3 className={styles.logout}>Sign In</h3>
+      </div>
+      <Image src={'/connect.png'} alt="logo" width={"500px"} height={"150px"}  />
+      <p style={{marginTop: "-1rem", marginBottom: "2rem"}}>Bring your community to life</p>
+      <Link href={'groups'}><div className={styles.button}>Start Chatting</div></Link>
     </div>
-  )
+  );
 }
