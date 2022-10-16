@@ -17,7 +17,7 @@ export default function Home() {
         <h3 className={styles.logout}>Log Out</h3>
       </div>
       <h1 className={styles.heading2}>DISCOVER</h1>
-      <h2>Trending Groupchats</h2>
+      <h2 className={styles.tre}>Trending Groupchats</h2>
       <div className={styles.trending_box}>
         <div class={styles.container}>
           <div class={styles.column}>
